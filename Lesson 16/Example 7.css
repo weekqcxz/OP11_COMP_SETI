@@ -1,0 +1,16 @@
+body {
+    margin: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.box {
+    width: 650px;
+    border-left: 2px solid #9ec3da;
+    border-right: 2px solid #9ec3da;
+    padding: 10px;
+}
+
+p { font-size: 16px; }
+.lh100 { line-height: 100%; }
+.lh150 { line-height: 150%; }
+.lh200 { line-height: 200%; }

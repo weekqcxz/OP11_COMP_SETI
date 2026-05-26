@@ -1,0 +1,24 @@
+body {
+    margin: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.box {
+    width: 650px;
+    border: 2px solid #9ec3da;
+    padding: 14px;
+}
+
+h3 {
+    margin: 18px 0 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.letter-minus { letter-spacing: -1px; }
+.letter-plus { letter-spacing: 1px; }
+.word-minus { word-spacing: -1px; }
+.word-plus { word-spacing: 1px; }

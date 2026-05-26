@@ -1,0 +1,15 @@
+body {
+    margin: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+}
+
+.box {
+    width: 620px;
+    border: 2px solid #9ec3da;
+    padding: 20px;
+}
+
+.capitalize { text-transform: capitalize; }
+.lowercase { text-transform: lowercase; }
+.uppercase { text-transform: uppercase; }

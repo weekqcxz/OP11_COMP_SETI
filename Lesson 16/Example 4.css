@@ -1,0 +1,17 @@
+body {
+    margin: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+}
+
+.box {
+    width: 620px;
+    border: 2px solid #9ec3da;
+    padding: 20px;
+}
+
+.underline { text-decoration: underline; }
+.overline { text-decoration: overline; }
+.line-through { text-decoration: line-through; }
+.both { text-decoration: underline line-through; }
+a { text-decoration: none; }

@@ -1,0 +1,19 @@
+body {
+    margin: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.box {
+    width: 620px;
+    border-left: 2px solid #9ec3da;
+    border-right: 2px solid #9ec3da;
+    border-bottom: 2px solid #9ec3da;
+    padding: 25px 36px 70px;
+}
+
+p {
+    font-size: 28px;
+    line-height: 1.6;
+    text-indent: 45px;
+    margin: 0;
+}
