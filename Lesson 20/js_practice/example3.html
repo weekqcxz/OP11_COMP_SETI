@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Клик по кнопке</title>
+</head>
+<body>
+
+    <button id="btn">Нажми меня</button>
+
+    <p id="text">Исходный текст</p>
+
+    <script>
+        let btn = document.querySelector("#btn");
+        let text = document.querySelector("#text");
+
+        btn.onclick = function() {
+            text.textContent = "Клик сработал!";
+            text.style.color = "blue";
+        };
+    </script>
+
+</body>
+</html>

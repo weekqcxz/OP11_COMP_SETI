@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Светофор</title>
+
+    <style>
+        .light {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: gray;
+            margin: 10px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="red" class="light"></div>
+    <div id="yellow" class="light"></div>
+    <div id="green" class="light"></div>
+
+    <button id="redBtn">Красный</button>
+    <button id="yellowBtn">Жёлтый</button>
+    <button id="greenBtn">Зелёный</button>
+
+    <script>
+        let red = document.querySelector("#red");
+        let yellow = document.querySelector("#yellow");
+        let green = document.querySelector("#green");
+
+        function resetColors() {
+            red.style.backgroundColor = "gray";
+            yellow.style.backgroundColor = "gray";
+            green.style.backgroundColor = "gray";
+        }
+
+        document.querySelector("#redBtn").onclick =
+        function() {
+            resetColors();
+            red.style.backgroundColor = "red";
+        };
+
+        document.querySelector("#yellowBtn").onclick =
+        function() {
+            resetColors();
+            yellow.style.backgroundColor = "yellow";
+        };
+
+        document.querySelector("#greenBtn").onclick =
+        function() {
+            resetColors();
+            green.style.backgroundColor = "green";
+        };
+    </script>
+
+</body>
+</html>
