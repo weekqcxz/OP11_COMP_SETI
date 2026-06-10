@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 4: Калькулятор чаевых</title>
+</head>
+<body>
+    <h2>Калькулятор чаевых</h2>
+    <p><input type="number" id="billInput" placeholder="Сумма счёта"></p>
+    <p><input type="number" id="tipInput" placeholder="Процент чаевых (0-50)"></p>
+    <p><input type="number" id="peopleInput" value="1" placeholder="Количество человек"></p>
+    <button id="calcTipsBtn">Рассчитать</button>
+
+    <div style="margin-top: 15px;">
+        <p id="tipAmount">Сумма чаевых: -</p>
+        <p id="totalAmount">Общая сумма: -</p>
+        <p id="perPersonAmount">Сумма на каждого человека: -</p>
+    </div>
+
+    <script>
+        let billInput = document.querySelector("#billInput");
+        let tipInput = document.querySelector("#tipInput");
+        let peopleInput = document.querySelector("#peopleInput");
+        let calcTipsBtn = document.querySelector("#calcTipsBtn");
+
+        let tipAmountText = document.querySelector("#tipAmount");
+        let totalAmountText = document.querySelector("#totalAmount");
+        let perPersonAmountText = document.querySelector("#perPersonAmount");
+
+        calcTipsBtn.onclick = function() {
+            let billVal = billInput.value;
+            let tipVal = tipInput.value;
+            let peopleVal = peopleInput.value;
+
+            if (billVal === "" || tipVal === "" || peopleVal === "") {
+                alert("Пожалуйста, заполните все поля!");
+                return;
+            }
+
+            let bill = Number(billVal);
+            let tipPercent = Number(tipVal);
+            let people = Number(peopleVal);
+
+            if (bill < 0) {
+                alert("Сумма счёта не может быть меньше 0");
+                return;
+            }
+            if (tipPercent < 0 || tipPercent > 50) {
+                alert("Процент чаевых должен быть от 0 до 50");
+                return;
+            }
+            if (people < 1) {
+                alert("Количество человек не может быть меньше 1");
+                return;
+            }
+
+            let tipAmount = bill * (tipPercent / 100);
+            let totalAmount = bill + tipAmount;
+            let perPerson = totalAmount / people;
+
+            if (people > 1) {
+                perPerson = perPerson.toFixed(2);
+            }
+
+            tipAmountText.textContent = "Сумма чаевых: " + tipAmount + " рублей";
+            totalAmountText.textContent = "Общая сумма: " + totalAmount + " рублей";
+            perPersonAmountText.textContent = "Сумма на каждого человека: " + perPerson + " рублей";
+        };
+    </script>
+</body>
+</html>

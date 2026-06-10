@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+</head>
+<body>
+    <div id="listContainer"></div>
+
+    <script>
+        let items = ["Гарри Поттер", "Властелин колец", "Зеленая миля", "Матрица", "Интерстеллар"];
+        let container = document.querySelector("#listContainer");
+
+        if (items.length === 0) {
+            container.textContent = "Список пуст";
+        } else {
+            let ol = document.createElement("ol");
+            for (let i = 0; i < items.length; i++) {
+                let li = document.createElement("li");
+                li.textContent = items[i];
+                ol.appendChild(li);
+            }
+            container.appendChild(ol);
+        }
+    </script>
+</body>
+</html>

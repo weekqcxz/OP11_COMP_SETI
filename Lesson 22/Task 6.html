@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 6</title>
+</head>
+<body>
+    <button id="singleNameBtn">Случайное имя</button>
+    <button id="tenNamesBtn">Сгенерировать 10 имён</button>
+    <p>Сгенерировано имён: <span id="countDisplay">0</span></p>
+    <ul id="namesList"></ul>
+
+    <script>
+        let firstNames = ["Анна", "Петр", "Иван", "Мария", "Ольга", "Дмитрий", "Елена", "Сергей", "Татьяна", "Алексей"];
+        let lastNames = ["Иванова", "Петров", "Сидоров", "Кузнецова", "Смирнов", "Волкова", "Морозов", "Новикова", "Федоров", "Соколова"];
+        let patronymics = ["Ивановна", "Иванович", "Сергеевич", "Алексеевна", "Петровна", "Дмитриевич", "Александровна", "Владимирович", "Николаевна", "Максимович"];
+        
+        let singleBtn = document.querySelector("#singleNameBtn");
+        let tenBtn = document.querySelector("#tenNamesBtn");
+        let countDisplay = document.querySelector("#countDisplay");
+        let namesList = document.querySelector("#namesList");
+        
+        let totalGenerated = 0;
+
+        function getRandomElement(arr) {
+            let randomIndex = Math.floor(Math.random() * arr.length);
+            return arr[randomIndex];
+        }
+
+        function generateFullName() {
+            let fName = getRandomElement(firstNames);
+            let lName = getRandomElement(lastNames);
+            let pName = getRandomElement(patronymics);
+            return `${lName} ${fName} ${pName}`;
+        }
+
+        function renderName() {
+            let li = document.createElement("li");
+            li.textContent = generateFullName();
+            namesList.appendChild(li);
+            
+            totalGenerated++;
+            countDisplay.textContent = totalGenerated;
+        }
+
+        singleBtn.onclick = function() {
+            renderName();
+        };
+
+        tenBtn.onclick = function() {
+            for (let i = 0; i < 10; i++) {
+                renderName();
+            }
+        };
+    </script>
+</body>
+</html>

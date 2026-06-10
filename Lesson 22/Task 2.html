@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+    <input type="text" id="cityInput">
+    <button id="searchBtn">Найти</button>
+    <p id="resultMsg"></p>
+
+    <script>
+        let cities = ["Москва", "Санкт-Петербург", "Казань", "Новосибирск", "Екатеринбург"];
+        let input = document.querySelector("#cityInput");
+        let btn = document.querySelector("#searchBtn");
+        let msg = document.querySelector("#resultMsg");
+
+        function findCity(searchStr) {
+            let target = searchStr.toLowerCase();
+            for (let i = 0; i < cities.length; i++) {
+                if (cities[i].toLowerCase() === target) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        btn.onclick = function() {
+            let val = input.value.trim();
+            if (val === "") {
+                msg.textContent = "Введите название города";
+                return;
+            }
+            
+            if (findCity(val)) {
+                msg.textContent = "Город найден";
+            } else {
+                msg.textContent = "Город не найден";
+            }
+        };
+    </script>
+</body>
+</html>

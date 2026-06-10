@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3: Проверка номера телефона</title>
+    <style>
+        .error { color: red; font-weight: bold; }
+        .success { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Валидация номера телефона</h2>
+    <input type="tel" id="phoneInput" placeholder="Например: +79991234567">
+    <button id="validateBtn">Проверить номер</button>
+    <p id="validationResult"></p>
+
+    <script>
+        let phoneInput = document.querySelector("#phoneInput");
+        let validateBtn = document.querySelector("#validateBtn");
+        let result = document.querySelector("#validationResult");
+
+        validateBtn.onclick = function() {
+            let rawPhone = phoneInput.value.trim();
+            if (rawPhone === "") {
+                result.textContent = "Ошибка: Поле не должно быть пустым";
+                result.className = "error";
+                return;
+            }
+
+            let cleanedNumber = rawPhone;
+            if (rawPhone[0] === "+") {
+                cleanedNumber = rawPhone.slice(1);
+            }
+
+            for (let i = 0; i < cleanedNumber.length; i++) {
+                if (cleanedNumber[i] < "0" || cleanedNumber[i] > "9") {
+                    result.textContent = "Ошибка: Номер должен содержать только цифры и плюс в начале)";
+                    result.className = "error";
+                    return;
+                }
+            }
+
+            let length = rawPhone.length;
+            let isValidFormat = false;
+
+            if (rawPhone[0] === "+" && rawPhone[1] === "7" && length === 12) {
+                isValidFormat = true;
+            } else if (rawPhone[0] === "8" && length === 11) {
+                isValidFormat = true;
+            } else if (rawPhone[0] !== "+" && rawPhone[0] !== "8" && length === 10) {
+                isValidFormat = true;
+            }
+
+            if (isValidFormat) {
+                result.textContent = "Номер телефона верный";
+                result.className = "success";
+            } else {
+                result.textContent = "Ошибка: Неверная длина или код страны";
+                result.className = "error";
+            }
+        };
+    </script>
+</body>
+</html>

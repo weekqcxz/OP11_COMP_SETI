@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3</title>
+</head>
+<body>
+    <button id="calcBtn">Подсчитать</button>
+    <div id="output"></div>
+
+    <script>
+        let numbers = [5, 12, 8, 130, 44, 3, 7, 21];
+        let btn = document.querySelector("#calcBtn");
+        let output = document.querySelector("#output");
+
+        btn.onclick = function() {
+            let moreThanTen = 0;
+            let lessThanTen = 0;
+            let equalToTen = 0;
+            let totalSum = 0;
+
+            for (let i = 0; i < numbers.length; i++) {
+                let num = numbers[i];
+                totalSum += num;
+                
+                if (num > 10) {
+                    moreThanTen++;
+                } else if (num < 10) {
+                    lessThanTen++;
+                } else {
+                    equalToTen++;
+                }
+            }
+
+            output.innerHTML = `
+                <p>Чисел больше 10: ${moreThanTen}</p>
+                <p>Чисел меньше 10: ${lessThanTen}</p>
+                <p>Чисел равных 10: ${equalToTen}</p>
+                <p>Сумма всех элементов: ${totalSum}</p>
+            `;
+        };
+    </script>
+</body>
+</html>
